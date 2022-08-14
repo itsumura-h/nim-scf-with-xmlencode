@@ -1,9 +1,32 @@
-from cgi import xmlEncode
 import
   std/json,
   std/strutils
 
 
+# ========== xmlEncode ==========
+# extract from `cgi` to able to run for JavaScript.
+# https://nim-lang.org/docs/cgi.html#xmlEncode%2Cstring
+
+proc addXmlChar(dest: var string, c: char) {.inline.} =
+  case c
+  of '&': add(dest, "&amp;")
+  of '<': add(dest, "&lt;")
+  of '>': add(dest, "&gt;")
+  of '\"': add(dest, "&quot;")
+  else: add(dest, c)
+
+proc xmlEncode*(s: string): string =
+  ## Encodes a value to be XML safe:
+  ## * `"` is replaced by `&quot;`
+  ## * `<` is replaced by `&lt;`
+  ## * `>` is replaced by `&gt;`
+  ## * `&` is replaced by `&amp;`
+  ## * every other character is carried over.
+  result = newStringOfCap(s.len + s.len shr 2)
+  for i in 0..len(s)-1: addXmlChar(result, s[i])
+
+
+# ========== libView ==========
 proc toString*(val:JsonNode):string =
   case val.kind
   of JString:
@@ -26,6 +49,7 @@ proc toString*(val:bool | int | float):string =
   return val.`$`.xmlEncode
 
 
+# ========== Component ==========
 type Component* = ref object
   value:string
 

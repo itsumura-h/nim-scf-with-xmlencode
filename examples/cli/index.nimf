@@ -1,8 +1,8 @@
-#? stdtmpl(toString="toString") | standard
-#import ./libView
+#? stdtmpl(toString="toString")
+#import ../../src/libView
 #import "header.nimf"
 #proc indexView*(str:string, arr:openArray[string]): Component =
-# result = Component.new()
+#  result = Component.new()
 <!DOCTYPE html>
 <html lang="en">
   ${headerView(title="Nim SCF with xmlEncode")}

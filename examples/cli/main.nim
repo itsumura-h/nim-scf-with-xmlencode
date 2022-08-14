@@ -1,5 +1,5 @@
 import
-  ./libView,
+  ../../src/libView,
   "index.nimf"
 
 let str = "<script>alert('aaa')</script>"
