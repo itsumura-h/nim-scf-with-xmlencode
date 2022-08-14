@@ -1,0 +1,7 @@
+#? stdtmpl(toString="toString") | standard
+#import ./libView
+#proc headerView*(title=""): Component =
+# result = Component.new()
+<head>
+  <title>${title}</title>
+</head>

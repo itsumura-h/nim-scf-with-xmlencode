@@ -1,0 +1,17 @@
+#? stdtmpl(toString="toString") | standard
+#import ./libView
+#import "header.nimf"
+#proc indexView*(title:string, arr:openArray[string]): Component =
+# result = Component.new()
+<!DOCTYPE html>
+<html lang="en">
+  ${headerView(title="Nim SCF with xmlEncode")}
+  <body>
+    ${title}
+    <ul>
+      #for row in arr:
+        <li>${row}</li>
+      # end for
+    </ul>
+  </body>
+</html>
