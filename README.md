@@ -12,7 +12,7 @@ expression
 <html lang="en">
   ${headerView("Nim SCF with xmlEncode")}
   <body>
-    ${title}
+    <p>${title}</p>
     <ul>
       #for row in arr:
         <li>${row}</li>
