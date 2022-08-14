@@ -10,12 +10,12 @@
   ${headerView(title="Nim SCF with xmlEncode")}
   <body>
     <p>${str}</p>
-    <div id="component">
+    <div id="${result.id()}">
       ${pageView(viewModel)}
     </div>
     <script>
       addEventListener('load', ()=>{
-        let dom = document.getElementById('component');
+        let dom = document.getElementById('${result.id()}');
         setInterval(async()=>{
           dom.innerHTML = await jsmain();
         }, 10000)

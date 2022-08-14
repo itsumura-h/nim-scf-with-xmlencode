@@ -1,7 +1,9 @@
 import
   std/json,
+  std/random,
   std/strutils
 
+randomize()
 
 # ========== xmlEncode ==========
 # extract from `cgi` to be able to run for JavaScript.
@@ -48,13 +50,22 @@ proc toString*(val:string):string =
 proc toString*(val:bool | int | float):string =
   return val.`$`.xmlEncode
 
+# ========== random string ==========
+proc randStr*(
+  size: int = 21,
+  alphabet: string = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+):string {.gcsafe.} =
+  for _ in 1..size:
+    result.add(alphabet.sample())
 
 # ========== Component ==========
 type Component* = ref object
   value:string
+  id:string
 
 proc new*(_:type Component):Component =
-  return Component(value:"")
+  let id = randStr(10)
+  return Component(value:"", id:id)
 
 proc add*(self:Component, value:string) =
   self.value.add(value)
@@ -64,3 +75,5 @@ proc toString*(self:Component):string =
 
 proc `$`*(self:Component):string =
   return self.toString()
+
+proc id*(self:Component):string = self.id
