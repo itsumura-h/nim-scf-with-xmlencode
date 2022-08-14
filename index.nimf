@@ -7,7 +7,7 @@
 <html lang="en">
   ${headerView(title="Nim SCF with xmlEncode")}
   <body>
-    ${title}
+    <p>${title}</p>
     <ul>
       #for row in arr:
         <li>${row}</li>

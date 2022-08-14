@@ -36,7 +36,7 @@ output
     <title>Nim SCF with xmlEncode</title>
   </head>
   <body>
-    &lt;script&gt;alert('aaa')&lt;/script&gt;
+    <p>&lt;script&gt;alert('aaa')&lt;/script&gt;</p>
     <ul>
       <li>aaa</li>
       <li>bbb</li>
