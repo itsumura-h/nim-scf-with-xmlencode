@@ -4,7 +4,7 @@ import
 
 
 # ========== xmlEncode ==========
-# extract from `cgi` to able to run for JavaScript.
+# extract from `cgi` to be able to run for JavaScript.
 # https://nim-lang.org/docs/cgi.html#xmlEncode%2Cstring
 
 proc addXmlChar(dest: var string, c: char) {.inline.} =
