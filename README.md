@@ -10,7 +10,7 @@ expression
 # result = Component.new()
 <!DOCTYPE html>
 <html lang="en">
-  ${headerView("Nim SCF with xmlEncode")}
+  ${headerView(title="Nim SCF with xmlEncode")}
   <body>
     <p>${title}</p>
     <ul>
